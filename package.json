@@ -5,15 +5,20 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"tsc",
-    "start":"tsc -b && http-server"
+    "dev": " tsc -b && vite",
+    "build": "tsc -b && vite build",
+    "start": "tsc -b && vite build && http-server dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@types/node": "^24.8.1",
-    "typescript": "^5.9.3"
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
   }
 }
