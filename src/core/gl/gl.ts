@@ -1,5 +1,5 @@
 
-export var gl : WebGL2RenderingContext | null
+export var gl : WebGL2RenderingContext 
 
 export class GlUtilities{
         public static initialize(elementId?: string) {
@@ -14,7 +14,7 @@ export class GlUtilities{
                 document.body.appendChild(canvas)
 
             }
-            gl = canvas.getContext('webgl2') 
+            gl= canvas.getContext('webgl2') as WebGL2RenderingContext
             if (gl == undefined) {
                 throw new Error("unable to initialize webgl2")
             }

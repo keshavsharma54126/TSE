@@ -1,8 +1,12 @@
-import {Engine} from "./engine"
+import {Engine} from "./core/engine"
 
+var e = new Engine()
 window.onload = function () {
-    var e = new Engine();
     e.start();
 
+}
+
+window.onresize = function () {
+    e.resize()
 }
 

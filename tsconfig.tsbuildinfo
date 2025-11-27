@@ -1,1 +1,1 @@
-{"root":["./src/engine.ts","./src/gl.ts","./src/index.ts"],"version":"5.9.3"}
+{"root":["./src/index.ts","./src/core/engine.ts","./src/core/gl/gl.ts","./src/core/gl/shader.ts"],"version":"5.9.3"}
