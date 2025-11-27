@@ -22,6 +22,10 @@ export class Shader{
         return gl.getAttribLocation(this._program, name);
     }
 
+    public getUniformLocation(name: string): WebGLUniformLocation {
+        return gl.getUniformLocation(this._program, name) as WebGLUniformLocation;
+    }
+
     private load_shader(shaderSource:string,shaderType:number): WebGLShader{
         let shader = gl.createShader(shaderType) as WebGLShader 
         gl.shaderSource( shader,shaderSource)
