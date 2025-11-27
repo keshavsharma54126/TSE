@@ -79,7 +79,7 @@ export class Engine {
 
         this._canvas.addEventListener('touchstart', (e: TouchEvent) => {
             if(e.target === this._canvas) e.preventDefault();
-            if (e.touches.length === 1) {
+            if (e.touches.length === 1 && e.touches[0]) {
                 this._isDragging = true;
                 this._isPinching = false;
                 this._lastX = e.touches[0].clientX;
@@ -94,7 +94,7 @@ export class Engine {
         this._canvas.addEventListener('touchmove', (e: TouchEvent) => {
             if(e.target === this._canvas) e.preventDefault();
             const rect = this._canvas.getBoundingClientRect();
-            if (this._isDragging && e.touches.length === 1) {
+            if (this._isDragging && e.touches.length === 1 && e.touches[0]) {
                 this.handlePan(e.touches[0].clientX, e.touches[0].clientY, rect.width, rect.height);
             } else if (this._isPinching && e.touches.length === 2) {
                 const dist = this.getPinchDist(e);
@@ -112,6 +112,9 @@ export class Engine {
     }
 
     private getPinchDist(e: TouchEvent): number {
+        if (e.touches.length < 2 || !e.touches[0] || !e.touches[1]) {
+            return 0;
+        }
         return Math.hypot(
             e.touches[0].clientX - e.touches[1].clientX,
             e.touches[0].clientY - e.touches[1].clientY
